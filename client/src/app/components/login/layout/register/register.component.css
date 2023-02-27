@@ -1,0 +1,47 @@
+.form{
+    margin: 20px;
+    padding: 20px;
+}
+
+
+h1{
+    text-align: center;
+}
+.formGroups{
+    width: 450px;
+    margin: 0 auto;
+    background-color: green;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+
+
+.formInputs{
+    
+    display: flex;
+    flex-flow: wrap row;
+    margin: 15px;
+    justify-content: space-between;
+}
+
+input{
+    border-radius: 10px;
+    padding: 8px
+}
+
+
+.error{
+    color: red;
+    text-align: center;
+}
+
+
+input.ng-invalid.ng-touched {
+    border: 2px red solid;
+}
+
+
+input.ng-valid{
+    border: 2px green solid
+}

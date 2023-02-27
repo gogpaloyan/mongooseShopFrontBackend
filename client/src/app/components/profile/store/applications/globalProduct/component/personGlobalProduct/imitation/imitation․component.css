@@ -1,0 +1,26 @@
+.pro{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+
+@media only screen and (max-width: 1450px) {
+    .pro {
+      grid-template-columns: auto auto auto;
+    }
+  }
+
+@media only screen and (max-width: 1300px) {
+    .pro {
+      grid-template-columns: auto auto;
+    }
+  }
+  @media only screen and (max-width: 900px) {
+    .pro {
+      grid-template-columns: auto;
+    }
+  }

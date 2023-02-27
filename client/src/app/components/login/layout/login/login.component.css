@@ -1,0 +1,52 @@
+
+
+    
+    
+.form{
+    text-align: center;
+    background-color: #ff8400;
+    border-radius: 10px;
+    border: red solid 2px
+}
+       
+.formGroup{
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: space-between;
+}
+            
+.inputDiv{
+    margin: 20px auto;
+    width: 300px;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+}
+                
+.buttonDiv{
+    background-color: green
+}
+                
+
+.chechboxDiv{
+    margin: 10px
+}                   
+
+.error{
+    color: red;
+    text-align: center
+}
+
+
+.ng-touched.ng-invalid{
+    border: red solid 2px
+}
+
+.ng-valid{
+    border: green solid 2px
+}
+ 
+input{
+    border-radius: 10px;
+    border: orangered solid 2px
+}

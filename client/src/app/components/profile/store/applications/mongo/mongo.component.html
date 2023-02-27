@@ -1,0 +1,17 @@
+<h1>this component need backend server</h1>
+<div class="text-center">
+    <textarea  [(ngModel)]="comments" placeholder="comments" class="textArea p-2 rounded-xl m-2 w-96" ></textarea>
+<div>
+    <button (click)="onAdd(comments)" class="p-4 bg-slate-500 rounded-xl w-96">Add</button>
+</div>
+</div>
+
+<div *ngFor="let item of data">
+    <div>
+        <div class="flex justify-between w-96 bg-zinc-500 rounded-xl p-4 my-2 mx-auto">
+            <span class="text-center mx-auto my-auto bg-red-600 rounded-xl text-white hover:bg-red-800">{{item.name}}</span>
+            <textarea [disabled]="true" [value]="item.comments" class="textArea p-2 rounded-xl m-2 w-52 "></textarea>
+            <button (click)="onDelete(item._id)" class="hover:bg-red-600 rounded-xl px-4 active:ease-in duration-100 active:bg-red-800">X</button>
+        </div>
+    </div>
+</div>

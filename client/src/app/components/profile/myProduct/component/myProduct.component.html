@@ -1,0 +1,43 @@
+<div>
+<div>
+    <div (click)="add = !add" class="p-4 m-6 text-center rounded-xl cursor-pointer bg-red-600">
+        {{add ? "remove" : "add product"}}
+    </div>
+</div>
+    <div  *ngIf="add" >
+        <form [formGroup]="form" (ngSubmit)="submit()" enctype="multipart/form-data" class="flex-col bg-slate-400 p-8 mb-12 ">
+
+            <h1 class="p-4 m-6 text-center rounded-xl bg-red-300">Add Product</h1>
+            <div class="text-center mb-4">
+                <label>
+                    <input type="file" (change)="select($event)" class="file">
+                    <span HoverDirective >Add photos</span>
+                </label>
+                
+            </div>
+            <div class="flex justify-center gap-2 p-4 m-4">
+                 <div  *ngFor="let item of image" class="parent">
+                    <img  [src]="item" class="w-24 h-24 rounded-lg">
+                    <div (click)="onDeletePhoto(item)" class="child p-1 cursor-pointer bg-red-600 hover:bg-red-800 rounded-xl text-white" >X</div>
+                 </div>
+            </div>
+            <div class="w-72 mx-auto mt-4">
+                <div class="flex justify-between mb-4 "><input type="text" placeholder="name" formControlName="name"> <span>name</span></div>
+                <div class="flex justify-between mb-4 "><input type="number" placeholder="price" formControlName="price"> <span>price</span></div>
+                <div class="flex justify-between mb-4 "><input type="number" placeholder="count" formControlName="count"> <span>count</span></div>
+                <div class="flex justify-between mb-4 "><input type="text" placeholder="title" formControlName="title"> <span>title</span></div>
+                <div class="flex justify-between mb-4 "><input type="text" placeholder="description" formControlName="description"> <span>description</span></div>
+                <div class="flex justify-between mb-4 "><input type="text" placeholder="category"  formControlName="category"> <span>category</span></div>
+            </div>
+            <div class="text-center" ><button class="p-6 rounded-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300">Add product</button></div>
+        </form>
+    </div>
+   
+</div>
+
+
+<div class="pro">
+<app-minGlobalComponent *ngFor="let item of arr" [product]="item" [sale]="false" [baskets]="false">
+    <div (click)="onDelete(item.id)" class="bg-red-600 text-white rounded-lg p-4 hover:bg-red-800">delete</div>
+</app-minGlobalComponent>
+</div>

@@ -1,0 +1,49 @@
+<h1 class="p-4 m-1 bg-orange-500 rounded-lg text-center">Default 
+    <div>
+         <div class="flex justify-between p-2 w-44 mx-auto">
+            <span>Login: </span>
+            <span>admin@mail.ru</span>
+         </div>
+    </div>
+    <div>
+        <div class="flex justify-between p-2 w-44 mx-auto">
+            <span>Password: </span>
+            <span>adminn</span>
+       </div>
+    </div>
+</h1>
+<form [formGroup]="form" class="form" (ngSubmit)="Submit()">
+    <h1>Login</h1>
+    <div class="formGroup py-14">
+        <div class="inputDiv">
+            <label>Login</label>
+            <input type="text" placeholder="your login"  formControlName="userName" class="p-2 border-red-600 boredr-2">
+           
+        </div>
+        <div class="error" *ngIf="form.controls['userName'].invalid && 
+                                  form.controls['userName'].touched"> This login incorrect </div>
+
+        <div class="inputDiv">
+            <label>Password</label>
+            <input type="password" placeholder="your password" formControlName="password" class="p-2">
+            
+        </div>
+        <div class="error" *ngIf="form.controls['password'].invalid && 
+                        form.controls['password'].touched"> This password incorrect </div>
+            
+        <div class="buttonDiv">
+            <div class="chechboxDiv">
+                <label>Remember me 
+                    <input type="checkbox" formControlName="check">
+                </label>
+            </div>
+            <div class="error" *ngIf="error"> This username or password incorrect 
+            </div>
+            <button class="p-4 bg-orange-600 m-2 rounded-lg hover:bg-orange-700">Submit</button>
+        </div>
+    </div>
+   
+    <div class="font-bold pb-20">&copy; Copyright ShopStore, 2023. All rights reserved. </div>
+
+
+</form>

@@ -1,0 +1,13 @@
+
+<div class="pro">
+<div *ngFor="let item of data" class="bg-orange-500 m-4 p-4 rounded-xl w-72 cursor-pointer hover:opacity-90 duration-75 ease-in ">
+    <div  routerLink="{{'/home/store/globalproduct/product/' + item.id}}" (click)="Update()"  >
+        <div>{{item.name}}</div>
+        <div>
+            <img [src]="item.image[0]" class="w-58 h-72" >
+            <div class="text-center p-4 text-xs bg-orange-400 rounded-xl">  {{item.title}} </div>
+            <div class="text-center p-1 text-xs bg-orange-400 rounded-xl">  {{item.price | currency}} </div>
+        </div>
+    </div>
+</div>
+</div>

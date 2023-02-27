@@ -1,0 +1,96 @@
+
+
+<div class="m-6">
+    <div>
+
+
+        <div *ngIf="edit"> 
+            <form [formGroup]="passForm" (ngSubmit)="onSubmit()" novalidate>
+                <div class="text-red-600 p-4 bg-slate-500 text-2xl text-center" *ngIf="errorPassword2">Incorrect password</div>
+                <div class="bg-slate-500 flex justify-center gap-4 p-7">
+                  
+                    <input type="password" formControlName="pass" placeholder="password">
+                    <button (click)="edit = !edit" class="bg-red-900 rounded-lg p-1">Cencel</button>
+                    <button  class="bg-lime-800 rounded-lg p-1">Submit</button>
+                </div>
+            </form>
+        </div>
+        
+        
+        
+        <div *ngIf="show">
+            <div class="form">
+                <form [formGroup]="ChangesForm" (ngSubmit)="change()">
+                    <div class="formGroups">
+                        <h1>Registration</h1>
+                        <div class="formInputs">
+                            <label>Name</label>
+                            <input type="text" placeholder="your name" formControlName="name">
+                        </div>
+                        <div class="formInputs">
+                            <label>Surname</label>
+                            <input type="text" placeholder="your surname" formControlName="surName">
+                        </div>
+                        <div class="formInputs">
+                            <label>birth</label>
+                            <input type="date" formControlName="birth">
+                        </div>
+                        <div class="formInputs">
+                            
+                        </div>
+                        
+                        <div class="formInputs">
+                            <label>UserName</label>
+                            <input type="email" placeholder="your email" formControlName="userName">
+                        </div>
+                        <div *ngIf="loginCheck" class="error" >this userName there already is</div>
+                        <div class="formInputs">
+                            <label>password</label>
+                            <input type="{{showPassword ? 'text' : 'password'}}" placeholder="your password" formControlName="password">
+                        </div>
+                        <div class="formInputs">
+                            <label>password repead</label>
+                            <input type="{{showPassword ? 'text' : 'password'}}" placeholder="your repead password" formControlName="passwordRep"><span (click)="showPassword = !showPassword" class="cursor-pointer bg-slate-500 p-2 rounded-lg">{{showPassword ? 'Hidden Passwords': 'Show Passwords'}}</span>
+                        </div>
+                        <div *ngIf="error" class="error" >This password incorrect</div>
+                        <div class="button flex gap-6">
+                            <button (click)="Show()">Cencel</button>
+                            <button>Save</button>
+                        </div>
+            
+                    </div>
+            
+                </form>
+            </div>
+        </div></div>
+
+        
+        <div *ngIf="!edit && !show" class="profile">
+            <div class="text-center p-4 bg-slate-400 w-80 "> <img [src]="userData.image" class="w-72 h-72 "></div>
+            <div class="text-center m-8 cursor-pointer">
+                <label>
+                    <input type="file" (change)="select($event)" class="file">
+                    <span class="p-4 bg-red-600 rounded-lg hover:bg-red-800" >Change photos</span>
+                </label>
+            </div>
+            <div><span> My name </span><span>{{userData.name}}</span></div>
+            <div><span> My surname </span><span>{{userData.surName}}</span></div>
+            <div><span> My birthday </span><span>{{userData.birth | date}}</span></div>
+
+        </div>
+</div>
+
+
+
+<div class="text-center"><button *ngIf="!edit && editMode" (click)="edit = true" HoverDirective>edit profile</button></div>
+
+<div *ngIf="!edit && !show">
+<div class="text-center"> {{userData.birth | like }}</div> 
+<div class="text-center"> <select [(ngModel)]="userData.discount" (click)="changeDiscount(userData.discount)" [ngStyle]="{backgroundColor:userData.discount }" class="bg-red-500 p-4 m-2 rounded-lg cursor-pointer " >
+    <option value="red" class="bg-red-600 rounded-lg p-2 m-2">red</option>
+    <option value="yellow" class="bg-yellow-400 rounded-lg p-2 m-2">yellow</option>
+    <option value="green" class="bg-green-800 rounded-lg p-2 m-2" >green</option>
+</select>
+<span class="p-4 rounded-lg" [ngStyle]="{backgroundColor: userData.discount}">My Discount</span>
+</div>
+</div>

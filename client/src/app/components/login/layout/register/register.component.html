@@ -1,0 +1,37 @@
+<div class="form">
+    <form [formGroup]="Forms" (ngSubmit)="register()">
+        <div class="formGroups">
+            <h1 class="font-bold p-2 bg-lime-500 rounded-xl">Registration</h1>
+            <div class="formInputs">
+                <label>Name</label>
+                <input type="text" placeholder="your name" formControlName="name">
+            </div>
+            <div class="formInputs">
+                <label>Surname</label>
+                <input type="text" placeholder="your surname" formControlName="surName">
+            </div>
+            <div class="formInputs">
+                <label>birth</label>
+                <input type="date" formControlName="birth">
+            </div>
+            <div class="formInputs">
+                <label>UserName</label>
+                <input type="email" placeholder="your email" formControlName="userName">
+            </div>
+            <div *ngIf="loginCheck" class="error">this userName there already is</div>
+            <div class="formInputs">
+                <label>password</label>
+                <input type="password" placeholder="your password" formControlName="password">
+            </div>
+            <div class="formInputs">
+                <label>password repead</label>
+                <input type="password" placeholder="your repead password" formControlName="passwordRep">
+            </div>
+            <div *ngIf="error" class="error">This password incorrect</div>
+            <div *ngIf="formsError" class="error">This form incorrect</div>
+            <div class="text-center">
+                <button class="bg-red-800 p-4 m-2 rounded-lg hover:bg-red-600 active:p-3 active:bg-red-700 duration-50 ease-in">confirm</button>
+            </div>
+        </div>
+    </form>
+</div>

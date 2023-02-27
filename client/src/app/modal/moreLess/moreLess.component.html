@@ -1,0 +1,11 @@
+<span *ngIf="text.length < max || show">
+    {{text}}
+  </span>
+  <span *ngIf="text.length > max">
+    {{text.substring(0, max)}}
+  </span>
+  <span class="cursor-pointer bg-slate-500 rounded-lg" *ngIf="text.length > max"
+        (click)="show = !show">
+    {{show ? " less" : " ...more"}}
+  </span>
+  

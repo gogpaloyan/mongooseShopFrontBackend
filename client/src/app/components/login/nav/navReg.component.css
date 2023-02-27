@@ -1,0 +1,22 @@
+
+
+.navigation{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-around;
+    background-color: #ab3c23 ;
+    border-radius: 12px;
+    padding: 8px;
+    }
+  
+
+    
+.active{
+    color: red;
+    background: #ab4c23;
+    border-radius: 8px
+    }
+           
+    
+
+

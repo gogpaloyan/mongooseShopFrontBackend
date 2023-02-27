@@ -1,0 +1,30 @@
+
+
+<div class="parent mx-auto w-80 cursor-pointer my-6 text-center rounded-md p-4 bg-red-50 hover:bg-red-300 duration-150 ease-in">
+    <div *ngIf="product.peyed" class="text-white bg-red-600 p-2"> This product payed</div>
+    <div *ngIf="baskets" ><div (click)="removeBasket(product.id)">remove</div>></div>
+    <div class="flex justify-between"> <div>price {{product.price | discountPipe: discount | currency}}<div [ngStyle]="{backgroundColor: discount}" class="p-2 rounded-lg">Discount {{discount === "red" ? " 20%" : discount === "yellow" ? " 10%" : "yet not"  }}</div> </div><ng-content ></ng-content></div>
+    <div> count {{product.rating.count}}</div>
+    <div> rating {{product.rating.rate}}</div>
+    <div  routerLink="{{'/home/store/globalproduct/product/' + product.id}}" class="" >
+        <img  [src]="product.image[0]" class="w-56 h-64 mx-auto rounded-lg">
+
+    </div>
+    <div>
+        <div><app-moreLess [max]="20" [text]="product.title"></app-moreLess></div>
+        <div><app-moreLess [max]="30" [text]="product.description"></app-moreLess></div>
+    </div>
+    <div>
+        <div>{{product.category}}</div>
+        
+
+    </div>
+    <div>
+        <div *ngIf="myId !== product.personId && !product.peyed  else myProduct"> 
+            <Button *ngIf="!payed && !product.peyed" (click)="basket(product)" class="bg-red-500 hover:bg-red-600 p-4 text-center rounded-xl"> To basket </Button>
+            <Button *ngIf="payed || product.peyed" (click)="remove(product.id)" class="bg-red-500 hover:bg-red-600 p-4 text-center rounded-xl"> remove </Button>
+        </div>
+        <ng-template #myProduct class="p-4"> <div  class="bg-red-600 text-center pb-4 text-4xl rounded-lg">This my Product</div></ng-template>
+       </div>
+
+</div>
