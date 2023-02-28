@@ -6,7 +6,7 @@
 </div>
 </div>
 
-<div *ngFor="let item of data">
+<div *ngFor="let item of data.reverse()">
     <div>
         <div class="flex justify-between w-96 bg-zinc-500 rounded-xl p-4 my-2 mx-auto">
             <span class="text-center mx-auto my-auto bg-red-600 rounded-xl text-white hover:bg-red-800">{{item.name}}</span>

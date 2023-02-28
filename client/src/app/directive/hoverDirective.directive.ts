@@ -13,23 +13,23 @@ export class HoverDirectiveDirective implements OnInit{
 
 
     ngOnInit(){
-        this.render.setStyle(this.el.nativeElement, 'margin', '20px')
-        this.render.setStyle(this.el.nativeElement, 'padding', '20px')
         this.render.setStyle(this.el.nativeElement, 'border-radius', '20px')
+        
+        this.render.setStyle(this.el.nativeElement, 'padding', '18px')
+        this.render.setStyle(this.el.nativeElement, 'margin-top', '5px')
+        this.render.setStyle(this.el.nativeElement, 'opacity', '0.7')
         this.render.setStyle(this.el.nativeElement, 'backgroundColor', 'green')
         this.render.setStyle(this.el.nativeElement, 'cursor', 'pointer')
     }
 
     @HostListener('mouseenter')
     mouseEnter(){
-        this.render.setStyle(this.el.nativeElement, 'padding', '25px')
         this.render.setStyle(this.el.nativeElement, 'opacity', '1')
     }
 
     @HostListener('mouseleave')
     mouseleave(){
-        this.render.setStyle(this.el.nativeElement, 'padding', '20px')
-        this.render.setStyle(this.el.nativeElement, 'opacity', '0.8')
+        this.render.setStyle(this.el.nativeElement, 'opacity', '0.7')
     }
 
 }

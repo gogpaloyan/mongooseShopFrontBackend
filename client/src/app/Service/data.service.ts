@@ -19,6 +19,7 @@ export class DataService{
                 name: 'Admin',
                 discount: "green",
                 surName: 'Admin',
+                phone: "+374445454545",
                 image: "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX9896883.jpg",
                 birth: "101010",
                 userName: 'admin@mail.ru',
@@ -46,6 +47,8 @@ export class DataService{
                     myProduct: [
                         {
                             person: 'Admin Admin',
+                            phone: "+374445454545",
+                            personImage: "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX9896883.jpg",
                             personId: 0,
                             id:15224427252,
                             title:"lenovo",
@@ -61,6 +64,8 @@ export class DataService{
                         },
                         {
                             person: 'Admin Admin',
+                            phone: "+374445454545",
+                            personImage: "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX9896883.jpg",
                             personId: 0,
                             id:152442272,
                             title:"Tesla",
@@ -76,6 +81,8 @@ export class DataService{
                         },
                         {
                             person: 'Admin Admin',
+                            phone: "+374445454545",
+                            personImage: "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX9896883.jpg",
                             personId: 0,
                             id:441741748585185741,
                             title:"xiaomi",
@@ -91,6 +98,8 @@ export class DataService{
                         },
                         {
                             person: 'Admin Admin',
+                            phone: "+374445454545",
+                            personImage: "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX9896883.jpg",
                             personId: 0,
                             id:152752425442,
                             title:"Iphone",
@@ -106,6 +115,8 @@ export class DataService{
                         },
                         {
                             person: 'Admin Admin',
+                            phone: "+374445454545",
+                            personImage: "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX9896883.jpg",
                             personId: 0,
                             id:4417417485851741,
                             title:"xiaomi",
@@ -121,6 +132,8 @@ export class DataService{
                         },
                         {
                             person: 'Admin Admin',
+                            phone: "+374445454545",
+                            personImage: "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX9896883.jpg",
                             personId: 0,
                             id:214741714141,
                             title:"acer",
@@ -142,6 +155,7 @@ export class DataService{
                 id: 1,
                 name: 'Grigor',
                 discount: "green",
+                phone: "+3744444444454",
                 image: "https://t4.ftcdn.net/jpg/01/11/58/37/360_F_111583781_7hgsiVm2EAzkcJ01GJV4BNioq1uKcM4Z.jpg",
                 surName: 'Paloyan',
                 birth: "101010",
@@ -170,6 +184,8 @@ export class DataService{
                     myProduct: [
                         {
                             person: 'Grigor Paloyan',
+                            phone: "+3744444444454",
+                            personImage: "https://t4.ftcdn.net/jpg/01/11/58/37/360_F_111583781_7hgsiVm2EAzkcJ01GJV4BNioq1uKcM4Z.jpg",
                             personId: 1,
                             id:341741144714,
                             title:"MacBook",
@@ -185,6 +201,8 @@ export class DataService{
                         },
                         {
                             person: 'Grigor Paloyan',
+                            phone: "+3744444444454",
+                            personImage: "https://t4.ftcdn.net/jpg/01/11/58/37/360_F_111583781_7hgsiVm2EAzkcJ01GJV4BNioq1uKcM4Z.jpg",
                             personId: 1,
                             id:441741741741,
                             title:"Ild",
@@ -200,6 +218,8 @@ export class DataService{
                         },
                         {
                             person: 'Grigor Paloyan',
+                            phone: "+3744444444454",
+                            personImage: "https://t4.ftcdn.net/jpg/01/11/58/37/360_F_111583781_7hgsiVm2EAzkcJ01GJV4BNioq1uKcM4Z.jpg",
                             personId: 1,
                             id:4417417484151741,
                             title:"Samsung ",
@@ -264,7 +284,7 @@ export class DataService{
             return this.userData.userDataBase.basket
         },
         addProductGlobal : (product: any, image: Array<string>) => {
-            this.userData.userDataBase.myProduct = [{...product, image: image, rating: {count: product.count, rate: 5}, id: Math.random(), personId: this.userData.id, person: this.userData.name + ' ' + this.userData.surName}, ...this.userData.userDataBase.myProduct]
+            this.userData.userDataBase.myProduct = [{...product, image: image, rating: {count: product.count, rate: 5}, id: Math.random(), personId: this.userData.id, personImage: this.userData.image, phone: this.userData.phone, person: this.userData.name + ' ' + this.userData.surName}, ...this.userData.userDataBase.myProduct]
         },
         getMyProduct: () => {
             return this.userData.userDataBase.myProduct

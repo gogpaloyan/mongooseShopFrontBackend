@@ -5,14 +5,5 @@
       display: block;
     }
 
-    .child{
-        display: flex;
-    }
   }
 
-
-  @media only screen and (max-width: 900px) {
-    .child{
-        display: block;
-    }
-  }

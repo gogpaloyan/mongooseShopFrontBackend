@@ -27,6 +27,7 @@ export class PersonGlobalProductComponent implements OnInit{
     ngOnInit(){
         this.discount = this.Data.userData.discount
         this.upDate()
+        console.log(this.arr = this.Data.dataBase.getProductGlobal().find((item: any) => item.id == this.id))
     }
 
     upDate(){

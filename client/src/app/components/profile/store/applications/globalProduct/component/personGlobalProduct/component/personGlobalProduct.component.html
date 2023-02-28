@@ -1,35 +1,47 @@
-
-
 <div class="pro bg-slate-500 rounded-xl p-4 m-4">
     <div>
         <div class="prersonProduct flex justify-center gap-x-40">
-        <div class="child">
-        <div class="text-center"> {{arr.person}} </div>
-        <div class="bg-zinc-500 w-80 flex justify-between rounded-xl p-4 m-4"> <span>Count </span> <span>{{arr.rating.count}}</span> </div>
-        <div class="bg-zinc-500 w-80 flex justify-between rounded-xl p-4 m-4"> <span>Price </span> <span>{{arr.price | discountPipe: discount | currency}} <div [ngStyle]="{backgroundColor: discount}" class="p-2 rounded-lg">Discount {{discount === "red" ? " 20%" : discount === "yellow" ? " 10%" : "yet not"  }}</div> </span></div>
-        <div class="bg-zinc-500 w-80 flex justify-between rounded-xl p-4 m-4"> <span>Name product </span> <span>{{arr.name}}</span></div>
-        </div>
-        
-            <app-slide 
-                [images]="arr.image" 
-                [indicators]="true" 
-                [controls]="true" 
-                [slideInterval]="3000"
-                [autoSlide]="true"
-                
-                >
+            <div class="child">
+                <div class="text-center bg-gray-500 rounded-md">
+                    <div class="flex"> <img [src]="arr.personImage" class="w-12 h-12 rounded-full"> <span
+                            class="mt-2 ml-6">{{arr.person}}</span></div>
+                    <div class="mt-4">
+                        <a [href]="'tel:' + arr.phone" class="flex">
+                            <img src="https://i.pinimg.com/originals/84/4e/8c/844e8cd4ab26c82286238471f0e5a901.png"
+                                class="w-12 h-12"> <span class="mt-2 ml-6">Call me {{arr.phone}} </span>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="bg-zinc-500 w-80 flex justify-between rounded-xl p-4 m-4"> <span>Count </span>
+                    <span>{{arr.rating.count}}</span> </div>
+                <div class="bg-zinc-500 w-80 flex justify-between rounded-xl p-4 m-4"> <span>Price </span>
+                    <span>{{arr.price | discountPipe: discount | currency}} <div [ngStyle]="{backgroundColor: discount}"
+                            class="p-2 rounded-lg">Discount {{discount === "red" ? " 20%" : discount === "yellow" ? "
+                            10%" : "yet not" }}</div> </span></div>
+                <div class="bg-zinc-500 w-80 flex justify-between rounded-xl p-4 m-4"> <span>Name product </span>
+                    <span>{{arr.name}}</span></div>
+            </div>
+
+            <app-slide [images]="arr.image" [indicators]="true" [controls]="true" [slideInterval]="3000"
+                [autoSlide]="true">
             </app-slide>
             <div> </div>
         </div>
-        <div class="bg-zinc-500 w-96 flex justify-between rounded-xl p-4 m-4"><span class="ml-12"> description </span><app-moreLess [max]="100" [text]="arr.description"></app-moreLess></div>
+        <div class="bg-zinc-500 w-96 flex justify-between rounded-xl p-4 m-4"><span class="ml-12"> description
+            </span><app-moreLess [max]="100" [text]="arr.description"></app-moreLess></div>
         <div *ngIf="arr.personId !== myId; else myProduct">
-            <button *ngIf="!payed" (click)="basket(arr)" class="bg-red-500 hover:bg-red-600 p-4 text-center rounded-xl"> To basket </button>
-            <button *ngIf="payed" (click)="remove(arr.id)" class="bg-red-500 hover:bg-red-600 p-4 text-center rounded-xl"> remove </button>
+            <button *ngIf="!payed" (click)="basket(arr)" class="bg-red-500 hover:bg-red-600 p-4 text-center rounded-xl">
+                To basket </button>
+            <button *ngIf="payed" (click)="remove(arr.id)"
+                class="bg-red-500 hover:bg-red-600 p-4 text-center rounded-xl"> remove </button>
         </div>
-        <ng-template #myProduct class="p-4"> <div  class="bg-red-600 text-center p-3 text-4xl rounded-lg">This my Product</div></ng-template>
+        <ng-template #myProduct class="p-4">
+            <div class="bg-red-600 text-center p-3 text-4xl rounded-lg">This my Product</div>
+        </ng-template>
     </div>
 </div>
 
 
 
-<app-imitation   [initial]="arr.category" (update)="upDate()" ></app-imitation>
+<app-imitation [initial]="arr.category" (update)="upDate()"></app-imitation>
