@@ -24,7 +24,8 @@
 }
                 
 .buttonDiv{
-    background-color: green
+    background-color: orangered;
+    border-radius: 20px;
 }
                 
 
@@ -34,6 +35,7 @@
 
 .error{
     color: red;
+    font-weight: 900;
     text-align: center
 }
 
