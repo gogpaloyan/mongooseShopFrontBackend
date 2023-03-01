@@ -15,8 +15,8 @@
 <form [formGroup]="form" class="form" (ngSubmit)="Submit()">
     <h1>Login</h1>
     <div class="w-[350px] mx-auto p-4 bg-orange-600 rounded-xl">
-    <div class="formGroup py-14z">
-        <div class="inputDiv">
+    <div class="formGroup py-4 shadow-lg ">
+        <div class="inputDiv bg-orange-800 rounded-lg p-1">
             <label>Login</label>
             <input type="text" placeholder="your login" formControlName="userName" class="p-2 border-red-600 boredr-2">
 
@@ -24,7 +24,7 @@
         <div class="error" *ngIf="form.controls['userName'].invalid && 
                                   form.controls['userName'].touched"> This login incorrect </div>
 
-        <div class="inputDiv">
+        <div class="inputDiv bg-orange-800 rounded-lg p-1">
             <label>Password</label>
             <input type="password" placeholder="your password" formControlName="password" class="p-2">
 

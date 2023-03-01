@@ -52,12 +52,19 @@ export class MongoComponent implements OnInit{
         setTimeout(() => {
             if(b !== a){
                 this.data = JSON.parse(b)
+                this.onPlay()
             }
             this.update()
         }, 300)
     }
 
-        
+
+    onPlay(){
+        let audio = new Audio
+        audio.src = "../../../../../../assets/message.mp3"
+        audio.load()
+        return audio.play()
+    }
     
 
 }
