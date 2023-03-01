@@ -19,6 +19,7 @@ export class MongoComponent implements OnInit{
     data: any
     comments: string = ""
     fullName: string =""
+    audio = new Audio
 
 
 
@@ -26,7 +27,7 @@ export class MongoComponent implements OnInit{
 
 
     ngOnInit(){
-        this.update()
+        this.update(false)
         this.fullName = this.dataBase.userData.name + " " + this.dataBase.userData.surName
     }
 
@@ -40,7 +41,7 @@ export class MongoComponent implements OnInit{
         return this.store.dispatch(new onDeleteMongo(id))
     }
 
-    update(){
+    update(check: boolean){
         let b: any
         let a : any = JSON.stringify(this.data)
         this.store.dispatch(new getMongo())
@@ -52,18 +53,19 @@ export class MongoComponent implements OnInit{
         setTimeout(() => {
             if(b !== a){
                 this.data = JSON.parse(b)
-                this.onPlay()
+                if(check){
+                    this.onPlay()
+                }
             }
-            this.update()
-        }, 300)
+            this.update(true)
+        }, 500)
     }
 
 
     onPlay(){
-        let audio = new Audio
-        audio.src = "../../../../../../assets/message.mp3"
-        audio.load()
-        return audio.play()
+        this.audio.src = "../../../../../../assets/message.mp3"
+        this.audio.load()
+        return this.audio.play()
     }
     
 
